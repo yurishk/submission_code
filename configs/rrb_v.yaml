@@ -1,0 +1,37 @@
+paths_config:
+  data_file_path: data/train_data.mat
+  output_dir: outputs/rrb_v
+params_config:
+  model_type: DUAL
+  emb_dim: 256
+  batch_size: 32
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  epochs: 220
+  patience: 35
+  dropout: 0.2
+  k_folds: 5
+  random_state: 1
+  sa_score_min: 0
+  sa_score_max: 22
+  rrb_score_min: 0
+  rrb_score_max: 8
+  isolate_branch_rng: true
+  sa_seed_offset: 0
+  rrb_seed_offset: 100000
+  sa_params:
+    encoder_variant: group_tcn
+    pool_variant: context_gated
+    learning_rate: 0.00035
+    dropout: 0.15
+    sa_loss_type: ccc_huber
+    sa_huber_weight: 0.12
+  rrb_params:
+    encoder_variant: tcn_stats
+    pool_variant: gated
+    learning_rate: 0.0002
+    dropout: 0.1
+    rrb_reg_weight: 0.4
+    rrb_anti_collapse_weight: 0.1
+    feat_group_dropout: 0.0
+  gpu_id: 0
